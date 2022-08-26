@@ -1,0 +1,202 @@
+package com.entity;
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.lang.reflect.InvocationTargetException;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.apache.commons.beanutils.BeanUtils;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+
+/**
+ * 流浪动物信息
+ * 数据库通用Operation实体类（普通增删改查）
+ * @author 
+ * @email 
+ * @date 2021-04-27 17:02:34
+ */
+@TableName("liulangdongwuxinxi")
+public class LiulangdongwuxinxiEntity<T> implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+
+	public LiulangdongwuxinxiEntity() {
+		
+	}
+	
+	public LiulangdongwuxinxiEntity(T t) {
+		try {
+			BeanUtils.copyProperties(this, t);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 主键id
+	 */
+	@TableId
+	private Long id;
+	/**
+	 * Animal type
+	 */
+					
+	private String dongwuleixing;
+	
+	/**
+	 * Animal characteristics
+	 */
+					
+	private String dongwutezheng;
+	
+	/**
+	 * Animal details
+	 */
+					
+	private String dongwuxiangqing;
+	
+	/**
+	 * Rescue time
+	 */
+				
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat 		
+	private Date jiuzhushijian;
+	
+	/**
+	 * Rescue location
+	 */
+					
+	private String jiuzhudidian;
+	
+	/**
+	 * Photo
+	 */
+					
+	private String tupian;
+	
+	/**
+	 * Adopted or not
+	 */
+					
+	private String shifouyijinglingyang;
+	
+	
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat
+	private Date addtime;
+
+	public Date getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(Date addtime) {
+		this.addtime = addtime;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * 设置：Animal type
+	 */
+	public void setDongwuleixing(String dongwuleixing) {
+		this.dongwuleixing = dongwuleixing;
+	}
+	/**
+	 * 获取：Animal type
+	 */
+	public String getDongwuleixing() {
+		return dongwuleixing;
+	}
+	/**
+	 * 设置：Animal characteristics
+	 */
+	public void setDongwutezheng(String dongwutezheng) {
+		this.dongwutezheng = dongwutezheng;
+	}
+	/**
+	 * 获取：Animal characteristics
+	 */
+	public String getDongwutezheng() {
+		return dongwutezheng;
+	}
+	/**
+	 * 设置：Animal details
+	 */
+	public void setDongwuxiangqing(String dongwuxiangqing) {
+		this.dongwuxiangqing = dongwuxiangqing;
+	}
+	/**
+	 * 获取：Animal details
+	 */
+	public String getDongwuxiangqing() {
+		return dongwuxiangqing;
+	}
+	/**
+	 * 设置：Rescue time
+	 */
+	public void setJiuzhushijian(Date jiuzhushijian) {
+		this.jiuzhushijian = jiuzhushijian;
+	}
+	/**
+	 * 获取：Rescue time
+	 */
+	public Date getJiuzhushijian() {
+		return jiuzhushijian;
+	}
+	/**
+	 * 设置：Rescue location
+	 */
+	public void setJiuzhudidian(String jiuzhudidian) {
+		this.jiuzhudidian = jiuzhudidian;
+	}
+	/**
+	 * 获取：Rescue location
+	 */
+	public String getJiuzhudidian() {
+		return jiuzhudidian;
+	}
+	/**
+	 * 设置：Photo
+	 */
+	public void setTupian(String tupian) {
+		this.tupian = tupian;
+	}
+	/**
+	 * 获取：Photo
+	 */
+	public String getTupian() {
+		return tupian;
+	}
+	/**
+	 * 设置：Adopted or not
+	 */
+	public void setShifouyijinglingyang(String shifouyijinglingyang) {
+		this.shifouyijinglingyang = shifouyijinglingyang;
+	}
+	/**
+	 * 获取：Adopted or not
+	 */
+	public String getShifouyijinglingyang() {
+		return shifouyijinglingyang;
+	}
+
+}
